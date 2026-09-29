@@ -142,12 +142,15 @@
 
     .media-card {
       position: relative;
-      border-radius: 18px;
+      border-radius: 16px;
       overflow: hidden;
       background: #0b1014;
-      border: 1px solid rgba(60, 231, 216, 0.18);
-      box-shadow: 0 0 28px rgba(46, 229, 122, 0.08), 0 18px 50px rgba(0, 0, 0, 0.45);
-      aspect-ratio: 16 / 10.2;
+      border: 1.5px solid rgba(60, 231, 216, 0.35);
+      box-shadow:
+        0 0 0 1px rgba(46, 229, 122, 0.08),
+        0 0 24px rgba(46, 229, 122, 0.12),
+        0 18px 50px rgba(0, 0, 0, 0.45);
+      aspect-ratio: 16 / 9.5;
     }
 
     .media-stage {
@@ -160,6 +163,23 @@
         radial-gradient(circle at 80% 80%, rgba(138, 92, 255, 0.12), transparent 40%),
         linear-gradient(180deg, #152029 0%, #0a1016 100%);
     }
+    .media-stage video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #000;
+      -webkit-user-drag: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      z-index: 1;
+    }
+    video::-internal-media-controls-download-button { display: none !important; }
+    video::-webkit-media-controls-enclosure { overflow: hidden; }
+    .media-card.playing .play,
+    .media-card.playing .preview-chip { opacity: 0; pointer-events: none; }
 
     .play {
       width: 68px;
@@ -170,8 +190,8 @@
       display: grid;
       place-items: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      z-index: 2;
-      transition: transform 0.2s ease;
+      z-index: 4;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
     .play:hover { transform: scale(1.06); }
     .play:active { transform: scale(0.96); }
@@ -179,13 +199,15 @@
 
     .corner {
       position: absolute;
-      width: 22px;
-      height: 22px;
-      border: 2px solid rgba(60, 231, 216, 0.85);
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid #2ee57a;
       z-index: 2;
+      pointer-events: none;
+      box-shadow: 0 0 8px rgba(46, 229, 122, 0.45);
     }
-    .corner.tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; border-radius: 4px 0 0 0; }
-    .corner.br { right: 10px; bottom: 10px; border-left: 0; border-top: 0; border-radius: 0 0 4px 0; }
+    .corner.tl { top: 8px; left: 8px; border-right: 0; border-bottom: 0; border-radius: 3px 0 0 0; }
+    .corner.br { right: 8px; bottom: 8px; border-left: 0; border-top: 0; border-radius: 0 0 3px 0; }
 
     .live-badge {
       position: absolute;
@@ -203,7 +225,8 @@
       padding: 5px 9px;
       border-radius: 8px;
       box-shadow: 0 0 14px rgba(255, 61, 74, 0.35);
-      z-index: 3;
+      z-index: 5;
+      pointer-events: none;
     }
     .live-badge i {
       width: 7px;
@@ -217,17 +240,18 @@
     .preview-chip {
       position: absolute;
       left: 14px;
-      bottom: 12px;
-      z-index: 2;
+      bottom: 52px;
+      z-index: 4;
       font-size: 11px;
       color: #c9d4de;
       background: rgba(0, 0, 0, 0.45);
       border: 1px solid rgba(255,255,255,0.08);
       padding: 5px 8px;
       border-radius: 8px;
+      pointer-events: none;
     }
 
-    .watch-copy { text-align: center; padding: 14px 8px 10px; }
+    .watch-copy { text-align: center; padding: 10px 8px 4px; }
     .watch-copy h2 {
       font-size: clamp(22px, 6vw, 28px);
       font-weight: 800;
@@ -249,7 +273,7 @@
     }
     .claims b { color: var(--green); font-weight: 800; }
 
-    .redeem-wrap { padding: 0 0 12px; }
+    .redeem-wrap { padding: 0 0 10px; margin-top: -2px; }
     .rainbow {
       position: relative;
       border-radius: 24px;
@@ -295,6 +319,10 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      -webkit-user-drag: none;
+      user-select: none;
+      -webkit-user-select: none;
+      pointer-events: none;
     }
     .redeem-meta { min-width: 0; }
     .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
@@ -341,16 +369,39 @@
       font-size: 16px;
       font-weight: 800;
       letter-spacing: 0.06em;
-      background: linear-gradient(180deg, #2af07a 0%, #16c85a 100%);
-      box-shadow: 0 0 26px rgba(34, 220, 110, 0.45), 0 8px 18px rgba(22, 200, 90, 0.28);
+      text-decoration: none;
+      background: linear-gradient(180deg, #3dff8a 0%, #18d35f 52%, #0db24d 100%);
+      box-shadow:
+        0 0 0 1px rgba(90, 255, 160, 0.35),
+        0 0 18px rgba(46, 229, 122, 0.55),
+        0 0 36px rgba(22, 200, 90, 0.38),
+        0 8px 18px rgba(22, 200, 90, 0.28);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
+      animation: ctaGlow 1.8s ease-in-out infinite;
       transition: transform 0.18s ease, filter 0.18s ease;
     }
-    .card-cta:hover { transform: scale(1.015); filter: brightness(1.05); }
+    .card-cta:hover { transform: scale(1.02); filter: brightness(1.08); }
     .card-cta:active { transform: scale(0.985); }
+
+    @keyframes ctaGlow {
+      0%, 100% {
+        box-shadow:
+          0 0 0 1px rgba(90, 255, 160, 0.28),
+          0 0 14px rgba(46, 229, 122, 0.4),
+          0 0 28px rgba(22, 200, 90, 0.25),
+          0 8px 16px rgba(22, 200, 90, 0.22);
+      }
+      50% {
+        box-shadow:
+          0 0 0 2px rgba(160, 255, 200, 0.55),
+          0 0 24px rgba(46, 229, 122, 0.75),
+          0 0 48px rgba(22, 200, 90, 0.5),
+          0 10px 22px rgba(22, 200, 90, 0.35);
+      }
+    }
 
     .comments {
       margin-top: 4px;
@@ -386,8 +437,10 @@
     .feed {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
       min-height: 280px;
+      max-height: 320px;
+      overflow: hidden;
       padding: 6px 2px 8px;
     }
     .row {
@@ -395,10 +448,10 @@
       grid-template-columns: 34px 1fr;
       gap: 10px;
       align-items: start;
-      animation: slideIn 0.45s ease both;
+      animation: liveIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(10px); }
+    @keyframes liveIn {
+      from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .avatar {
@@ -415,6 +468,39 @@
     .meta .name { font-weight: 700; font-size: 13.5px; }
     .meta .when { color: var(--muted-2); font-size: 12px; }
     .msg { margin-top: 2px; color: #c5ccd4; font-size: 13.5px; line-height: 1.35; }
+
+    /* Live typing indicator — exact style like reference site */
+    .row.typing-row {
+      animation: none !important;
+      opacity: 1;
+    }
+    .typing-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      height: 26px;
+      min-width: 44px;
+      padding: 0 11px;
+      margin-top: 2px;
+      border-radius: 999px;
+      background: #2a3138;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .typing-bubble span {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #9aa3ad;
+      animation: typingDot 1.15s ease-in-out infinite;
+    }
+    .typing-bubble span:nth-child(1) { animation-delay: 0s; }
+    .typing-bubble span:nth-child(2) { animation-delay: 0.18s; }
+    .typing-bubble span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes typingDot {
+      0%, 70%, 100% { opacity: 0.3; transform: translateY(0) scale(0.95); }
+      35% { opacity: 1; transform: translateY(-2.5px) scale(1); }
+    }
 
     .more {
       display: block;
@@ -444,6 +530,7 @@
       color: #fff;
       font-size: 16px;
       font-weight: 800;
+      text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -548,15 +635,23 @@
 
       <div class="media-card">
         <div class="media-stage">
+          <video
+            id="promoVideo"
+            controls
+            autoplay
+            loop
+            playsinline
+            webkit-playsinline
+            preload="auto"
+            controlslist="nodownload noremoteplayback"
+            disablePictureInPicture
+            oncontextmenu="return false;"
+          >
+            <source src="https://www.image2url.com/r2/default/videos/1790660164456-b75617f4-a875-4ba2-9a7f-710f010cbadf.mp4" type="video/mp4">
+          </video>
           <span class="live-badge"><i></i> LIVE</span>
           <span class="corner tl"></span>
           <span class="corner br"></span>
-          <button class="play" id="playBtn" type="button" aria-label="Play preview">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="#111" aria-hidden="true">
-              <path d="M8 5v14l12-7z"/>
-            </svg>
-          </button>
-          <span class="preview-chip">Preview · 0:00 / 1:06</span>
         </div>
       </div>
 
@@ -576,6 +671,8 @@
                   alt="₹4999 redeem code"
                   width="78"
                   height="78"
+                  draggable="false"
+                  oncontextmenu="return false;"
                 />
               </div>
               <div class="redeem-meta">
@@ -588,12 +685,17 @@
                 <div class="stars" aria-label="5 star rating">★★★★★</div>
               </div>
             </div>
-            <button class="card-cta" type="button" data-action="claim">
+            <a
+              class="card-cta"
+              href="https://terasharelink.com/s/1kqE1zUnrQcQj29DmEdfK-Q"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true">
                 <path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               GET REDEEM CODE
-            </button>
+            </a>
           </article>
         </div>
       </div>
@@ -610,199 +712,4 @@
         </div>
         <div class="watching"><span id="watchingCount">1,521</span> watching</div>
       </div>
-      <div class="feed" id="feed" aria-live="polite">
-        <div class="row">
-          <div class="avatar" style="background:#2f7bff">R</div>
-          <div>
-            <div class="meta"><span class="name">Roh6458</span><span class="when">just now</span></div>
-            <div class="msg">Ha bhai mil gaya ❤️‍🩹🫶</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="avatar" style="background:#1f9d6a">H</div>
-          <div>
-            <div class="meta"><span class="name">HDMohit16</span><span class="when">just now</span></div>
-            <div class="msg">Mil gaya thanks 🔥🫶</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="avatar" style="background:#7a3dff">D</div>
-          <div>
-            <div class="meta"><span class="name">DeepakIndl</span><span class="when">2s ago</span></div>
-            <div class="msg">Redeem code mil gaya yr ❤️😍</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="avatar" style="background:#d4552a">R</div>
-          <div>
-            <div class="meta"><span class="name">Rohan_Zone270</span><span class="when">3s ago</span></div>
-            <div class="msg">Mujhe to yakeen hi nahi ho raha sach me mil Gaya yr 💋😍</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="avatar" style="background:#8a3ad4">X</div>
-          <div>
-            <div class="meta"><span class="name">xKrishna387</span><span class="when">5s ago</span></div>
-            <div class="msg">Thanks Bhai 🫶</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="avatar" style="background:#3aa0c8">A</div>
-          <div>
-            <div class="meta"><span class="name">Aarav2010</span><span class="when">6s ago</span></div>
-            <div class="msg">₹4999 ka redeem code mil gaya ❤️</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="avatar" style="background:#c9a227">S</div>
-          <div>
-            <div class="meta"><span class="name">sumit6764</span><span class="when">8s ago</span></div>
-            <div class="msg">Thnx mil gaya bhai 🎁❤️</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="avatar" style="background:#e23d6d">R</div>
-          <div>
-            <div class="meta"><span class="name">ravi2694</span><span class="when">9s ago</span></div>
-            <div class="msg">Bhai Maine claim kar liya 🎁🔥</div>
-          </div>
-        </div>
-      </div>
-      <button class="more" type="button" id="moreBtn">⌄ Scroll for more</button>
-    </section>
-    </section>
-
-    <footer>
-      © 2026 — Demo Website<br />
-      Independent UI demo. Not affiliated with any store, game, brand, or payment provider.
-    </footer>
-
-    <div class="wa-wrap">
-      <button class="wa" type="button" data-action="whatsapp" aria-label="Join WhatsApp Channel">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M12 3.2a8.3 8.3 0 00-7.2 12.4L4 21l5.5-.8A8.3 8.3 0 1012 3.2z" fill="#fff"/>
-          <path d="M9.2 8.7c.2-.5.3-.5.6-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.4.5c-.1.2 0 .4.2.6.3.4.8.9 1.3 1.2.3.2.5.2.7 0l.5-.4c.2-.1.4-.1.6 0l1.6.8c.3.1.4.3.4.5v.5c0 .3 0 .4-.5.6-1 .4-2.3.2-3.8-.8-1.6-1.1-2.7-2.7-3-4.2-.1-.6 0-1.2.2-1.6z" fill="#25d366"/>
-        </svg>
-        Join WhatsApp Channel
-      </button>
-    </div>
-  </div>
-
-  <div class="toast" id="toast" role="status"></div>
-
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-card">
-      <h3 id="modalTitle">Demo preview only</h3>
-      <p id="modalText">This page is a front-end design demo. No real redeem codes, payments, or channels are connected.</p>
-      <button type="button" id="closeModal">Got it</button>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      const liveEl = document.getElementById("liveCount");
-      const watchEl = document.getElementById("watchingCount");
-      const claimsEl = document.getElementById("claimsCount");
-      const feed = document.getElementById("feed");
-      const toast = document.getElementById("toast");
-      const modal = document.getElementById("modal");
-      const modalText = document.getElementById("modalText");
-
-      let live = 1292;
-      let watching = 1521;
-      let claims = 4681;
-
-      const format = (n) => n.toLocaleString("en-IN");
-      const tickNumber = (current, minDelta, maxDelta, floor) => {
-        const delta = Math.floor(Math.random() * (maxDelta - minDelta + 1)) + minDelta;
-        const dir = Math.random() > 0.35 ? 1 : -1;
-        return Math.max(floor, current + dir * delta);
-      };
-
-      const updateCounters = () => {
-        live = tickNumber(live, 1, 6, 1200);
-        watching = tickNumber(watching, 1, 8, 1400);
-        if (Math.random() > 0.45) claims += Math.floor(Math.random() * 17) + 3;
-        liveEl.textContent = format(live);
-        watchEl.textContent = format(watching);
-        claimsEl.textContent = format(claims);
-      };
-
-      const colors = ["#2f7bff", "#c9a227", "#7a3dff", "#e23d6d", "#1f9d6a", "#d4552a", "#3aa0c8", "#8a3ad4"];
-      const names = ["Roh6458", "HDMohit16", "DeepakIndl", "Rohan_Zone270", "xKrishna387", "Aarav2010", "sumit6764", "ravi2694"];
-      const comments = [
-        "Ha bhai mil gaya ❤️‍🩹🫶",
-        "Mil gaya thanks 🔥🫶",
-        "Redeem code mil gaya yr ❤️😍",
-        "Mujhe to yakeen hi nahi ho raha sach me mil Gaya yr 💋😍",
-        "Thanks Bhai 🫶",
-        "₹4999 ka redeem code mil gaya ❤️",
-        "Thnx mil gaya bhai 🎁❤️",
-        "Bhai Maine claim kar liya 🎁🔥"
-      ];
-
-      const renderRow = (item, animate) => {
-        const row = document.createElement("div");
-        row.className = "row";
-        if (!animate) row.style.animation = "none";
-        const color = colors[item.name.charCodeAt(0) % colors.length];
-        row.innerHTML = `
-          <div class="avatar" style="background:${color}">${item.name.charAt(0).toUpperCase()}</div>
-          <div>
-            <div class="meta">
-              <span class="name">${item.name}</span>
-              <span class="when">${item.when}</span>
-            </div>
-            <div class="msg">${item.text}</div>
-          </div>
-        `;
-        return row;
-      };
-
-      let commentIndex = 0;
-      const addComment = () => {
-        const text = comments[commentIndex % comments.length];
-        const name = names[(commentIndex + 3) % names.length];
-        commentIndex += 1;
-        const row = renderRow({ name, when: "just now", text }, true);
-        feed.prepend(row);
-        while (feed.children.length > 8) feed.removeChild(feed.lastChild);
-      };
-
-      const showToast = (msg) => {
-        toast.textContent = msg;
-        toast.classList.add("show");
-        clearTimeout(showToast.t);
-        showToast.t = setTimeout(() => toast.classList.remove("show"), 2800);
-      };
-
-      const openModal = (text) => {
-        modalText.textContent = text;
-        modal.classList.add("open");
-      };
-
-      document.getElementById("closeModal").addEventListener("click", () => modal.classList.remove("open"));
-      modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
-
-      document.querySelectorAll("[data-action='claim']").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          openModal("This is a simulated claim flow for a UI demo. No redeem code is issued and no account data is collected.");
-        });
-      });
-
-      document.querySelector("[data-action='whatsapp']").addEventListener("click", () => {
-        showToast("Demo only — no WhatsApp channel is linked from this page.");
-      });
-
-      document.getElementById("playBtn").addEventListener("click", () => {
-        showToast("Video URL abhi page me add nahi hua. Link bhejo to preview yahin chalega.");
-      });
-
-      document.getElementById("moreBtn").addEventListener("click", addComment);
-
-      setInterval(updateCounters, 2200);
-      setInterval(addComment, 3800);
-    })();
-  </script>
-</body>
-</html>
+      <div class="feed"
