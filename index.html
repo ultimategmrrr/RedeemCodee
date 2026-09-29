@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#07090b" />
-  <meta name="description" content="₹4999 Redeem Code demo landing page." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07090b">
+  <meta name="description" content="₹4999 Redeem Code demo landing page.">
   <title>₹4999 Redeem Code</title>
   <style>
     :root {
       --bg: #07090b;
+      --card: #10151a;
       --text: #f4f7fb;
       --muted: #8b94a3;
       --muted-2: #6b7380;
@@ -19,57 +20,96 @@
       --purple: #8a5cff;
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      background: #07090b;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html,
+    body {
+      min-height: 100%;
+      background: var(--bg);
       color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
       overflow-x: hidden;
     }
-
     body {
       background:
-        radial-gradient(1000px 420px at 50% -80px, rgba(46, 229, 122, 0.07), transparent 55%),
+        radial-gradient(
+          1000px 420px at 50% -80px,
+          rgba(46, 229, 122, 0.07),
+          transparent 55%
+        ),
         #07090b;
     }
-
-    button { font-family: inherit; cursor: pointer; }
-
+    button,
+    a {
+      font-family: inherit;
+    }
+    button {
+      cursor: pointer;
+    }
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
     .page {
       width: min(560px, 100%);
       margin: 0 auto;
-      padding: 8px 14px calc(18px + var(--safe-bottom));
+      padding:
+        8px
+        14px
+        calc(18px + var(--safe-bottom));
     }
-
+    /* =========================
+       TOP BAR
+    ========================== */
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      padding: 10px 2px 10px;
+      padding: 10px 2px;
     }
-
     .brand {
       display: flex;
       align-items: center;
       gap: 9px;
       min-width: 0;
     }
-
-    .dots { display: flex; gap: 5px; flex-shrink: 0; }
+    .dots {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+    }
     .dots span {
       width: 8px;
       height: 8px;
-      border-radius: 50%;
       display: block;
+      border-radius: 50%;
     }
-    .dots span:nth-child(1) { background: #35e07a; box-shadow: 0 0 8px #35e07a; }
-    .dots span:nth-child(2) { background: #f0c12a; }
-    .dots span:nth-child(3) { background: #ff7a2b; }
-    .dots span:nth-child(4) { background: #9b5cff; }
-
+    .dots span:nth-child(1) {
+      background: #35e07a;
+      box-shadow: 0 0 8px #35e07a;
+    }
+    .dots span:nth-child(2) {
+      background: #f0c12a;
+    }
+    .dots span:nth-child(3) {
+      background: #ff7a2b;
+    }
+    .dots span:nth-child(4) {
+      background: #9b5cff;
+    }
     .brand h1 {
       font-size: clamp(13px, 3.6vw, 16px);
       letter-spacing: 0.08em;
@@ -78,7 +118,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
     .live-pill {
       display: inline-flex;
       align-items: center;
@@ -94,7 +133,6 @@
       box-shadow: 0 0 16px rgba(46, 229, 122, 0.18);
       flex-shrink: 0;
     }
-
     .pulse-dot {
       width: 7px;
       height: 7px;
@@ -103,12 +141,19 @@
       box-shadow: 0 0 8px var(--green);
       animation: pulse 1.6s ease-in-out infinite;
     }
-
     @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.35); opacity: 0.55; }
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.35);
+        opacity: 0.55;
+      }
     }
-
+    /* =========================
+       FEATURES
+    ========================== */
     .features {
       display: flex;
       align-items: center;
@@ -118,9 +163,16 @@
       font-size: 12.5px;
       padding: 2px 0 12px;
     }
-    .features .sep { color: #3d4540; }
-    .features strong { color: #a7b3a8; font-weight: 600; }
-
+    .features .sep {
+      color: #3d4540;
+    }
+    .features strong {
+      color: #a7b3a8;
+      font-weight: 600;
+    }
+    /* =========================
+       STEPS
+    ========================== */
     .step {
       display: flex;
       align-items: center;
@@ -135,15 +187,30 @@
       width: 28px;
       height: 3px;
       border-radius: 99px;
-      background: linear-gradient(90deg, var(--orange), #ffd36a);
+      background: linear-gradient(
+        90deg,
+        var(--orange),
+        #ffd36a
+      );
     }
-    .step.claim { margin-top: 2px; margin-bottom: 10px; }
-    .step.claim .bar { background: linear-gradient(90deg, var(--green), var(--cyan)); }
-
+    .step.claim {
+      margin-top: 16px;
+      margin-bottom: 10px;
+    }
+    .step.claim .bar {
+      background: linear-gradient(
+        90deg,
+        var(--green),
+        var(--cyan)
+      );
+    }
+    /* =========================
+       VIDEO
+    ========================== */
     .media-card {
       position: relative;
-      border-radius: 16px;
       overflow: hidden;
+      border-radius: 16px;
       background: #0b1014;
       border: 1.5px solid rgba(60, 231, 216, 0.35);
       box-shadow:
@@ -152,16 +219,27 @@
         0 18px 50px rgba(0, 0, 0, 0.45);
       aspect-ratio: 16 / 9.5;
     }
-
     .media-stage {
       width: 100%;
       height: 100%;
       display: grid;
       place-items: center;
       background:
-        radial-gradient(circle at 30% 20%, rgba(60, 231, 216, 0.08), transparent 35%),
-        radial-gradient(circle at 80% 80%, rgba(138, 92, 255, 0.12), transparent 40%),
-        linear-gradient(180deg, #152029 0%, #0a1016 100%);
+        radial-gradient(
+          circle at 30% 20%,
+          rgba(60, 231, 216, 0.08),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(138, 92, 255, 0.12),
+          transparent 40%
+        ),
+        linear-gradient(
+          180deg,
+          #152029 0%,
+          #0a1016 100%
+        );
     }
     .media-stage video {
       position: absolute;
@@ -170,45 +248,71 @@
       height: 100%;
       object-fit: cover;
       background: #000;
-      -webkit-user-drag: none;
-      user-select: none;
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
+      display: block;
       z-index: 1;
     }
-    video::-internal-media-controls-download-button { display: none !important; }
-    video::-webkit-media-controls-enclosure { overflow: hidden; }
-    .media-card.playing .play,
-    .media-card.playing .preview-chip { opacity: 0; pointer-events: none; }
-
+    .video-start-overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 4;
+      pointer-events: none;
+      transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+    }
+    .video-start-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
     .play {
       width: 68px;
       height: 68px;
-      border-radius: 50%;
       border: 0;
+      border-radius: 50%;
       background: rgba(255, 255, 255, 0.94);
       display: grid;
       place-items: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      z-index: 4;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+      pointer-events: auto;
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
     }
-    .play:hover { transform: scale(1.06); }
-    .play:active { transform: scale(0.96); }
-    .play svg { margin-left: 3px; }
-
+    .play:hover {
+      transform: scale(1.06);
+    }
+    .play:active {
+      transform: scale(0.96);
+    }
+    .play svg {
+      margin-left: 3px;
+    }
     .corner {
       position: absolute;
       width: 18px;
       height: 18px;
       border: 2.5px solid #2ee57a;
-      z-index: 2;
+      z-index: 5;
       pointer-events: none;
       box-shadow: 0 0 8px rgba(46, 229, 122, 0.45);
     }
-    .corner.tl { top: 8px; left: 8px; border-right: 0; border-bottom: 0; border-radius: 3px 0 0 0; }
-    .corner.br { right: 8px; bottom: 8px; border-left: 0; border-top: 0; border-radius: 0 0 3px 0; }
-
+    .corner.tl {
+      top: 8px;
+      left: 8px;
+      border-right: 0;
+      border-bottom: 0;
+      border-radius: 3px 0 0 0;
+    }
+    .corner.br {
+      right: 8px;
+      bottom: 8px;
+      border-left: 0;
+      border-top: 0;
+      border-radius: 0 0 3px 0;
+    }
     .live-badge {
       position: absolute;
       top: 12px;
@@ -225,7 +329,7 @@
       padding: 5px 9px;
       border-radius: 8px;
       box-shadow: 0 0 14px rgba(255, 61, 74, 0.35);
-      z-index: 5;
+      z-index: 6;
       pointer-events: none;
     }
     .live-badge i {
@@ -236,27 +340,24 @@
       box-shadow: 0 0 8px var(--red);
       animation: pulse 1.2s ease-in-out infinite;
     }
-
-    .preview-chip {
-      position: absolute;
-      left: 14px;
-      bottom: 52px;
-      z-index: 4;
-      font-size: 11px;
-      color: #c9d4de;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 5px 8px;
-      border-radius: 8px;
-      pointer-events: none;
+    /* =========================
+       WATCH COPY
+    ========================== */
+    .watch-copy {
+      text-align: center;
+      padding: 10px 8px 4px;
     }
-
-    .watch-copy { text-align: center; padding: 10px 8px 4px; }
     .watch-copy h2 {
       font-size: clamp(22px, 6vw, 28px);
       font-weight: 800;
       letter-spacing: 0.04em;
-      background: linear-gradient(90deg, #ff7a1a, #ffb347 45%, #ffd27a);
+      background:
+        linear-gradient(
+          90deg,
+          #ff7a1a,
+          #ffb347 45%,
+          #ffd27a
+        );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -271,25 +372,54 @@
       font-size: 14px;
       color: #8f98a3;
     }
-    .claims b { color: var(--green); font-weight: 800; }
-
-    .redeem-wrap { padding: 0 0 10px; margin-top: -2px; }
+    .claims b {
+      color: var(--green);
+      font-weight: 800;
+    }
+    /* =========================
+       REDEEM CARD
+    ========================== */
+    .redeem-wrap {
+      padding: 0 0 10px;
+      margin-top: 8px;
+    }
     .rainbow {
       position: relative;
       border-radius: 24px;
       padding: 2.5px;
-      background: conic-gradient(from 210deg, #ff2d2d, #ff8a00, #ffe14a, #2ee57a, #00e5ff, #3b82ff, #a855ff, #ff2d2d);
+      background:
+        conic-gradient(
+          from 210deg,
+          #ff2d2d,
+          #ff8a00,
+          #ffe14a,
+          #2ee57a,
+          #00e5ff,
+          #3b82ff,
+          #a855ff,
+          #ff2d2d
+        );
       box-shadow:
         0 0 18px rgba(255, 60, 80, 0.18),
         0 0 22px rgba(80, 180, 255, 0.16),
-        0 12px 28px rgba(0,0,0,0.4);
+        0 12px 28px rgba(0, 0, 0, 0.4);
     }
     .rainbow::before {
       content: "";
       position: absolute;
       inset: -2px;
       border-radius: 26px;
-      background: conic-gradient(from 210deg, #ff2d2d, #ff8a00, #2ee57a, #00e5ff, #3b82ff, #a855ff, #ff2d2d);
+      background:
+        conic-gradient(
+          from 210deg,
+          #ff2d2d,
+          #ff8a00,
+          #2ee57a,
+          #00e5ff,
+          #3b82ff,
+          #a855ff,
+          #ff2d2d
+        );
       filter: blur(10px);
       opacity: 0.28;
       z-index: -1;
@@ -319,13 +449,16 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      -webkit-user-drag: none;
-      user-select: none;
-      -webkit-user-select: none;
-      pointer-events: none;
     }
-    .redeem-meta { min-width: 0; }
-    .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+    .redeem-meta {
+      min-width: 0;
+    }
+    .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
     .badge {
       display: inline-flex;
       align-items: center;
@@ -338,8 +471,12 @@
       letter-spacing: 0.06em;
       color: #fff;
     }
-    .badge.new { background: #ff2d3a; }
-    .badge.premium { background: #7b4dff; }
+    .badge.new {
+      background: #ff2d3a;
+    }
+    .badge.premium {
+      background: #7b4dff;
+    }
     .redeem h3 {
       font-size: clamp(20px, 5.6vw, 26px);
       line-height: 1.15;
@@ -370,7 +507,13 @@
       font-weight: 800;
       letter-spacing: 0.06em;
       text-decoration: none;
-      background: linear-gradient(180deg, #3dff8a 0%, #18d35f 52%, #0db24d 100%);
+      background:
+        linear-gradient(
+          180deg,
+          #3dff8a 0%,
+          #18d35f 52%,
+          #0db24d 100%
+        );
       box-shadow:
         0 0 0 1px rgba(90, 255, 160, 0.35),
         0 0 18px rgba(46, 229, 122, 0.55),
@@ -381,11 +524,17 @@
       justify-content: center;
       gap: 8px;
       animation: ctaGlow 1.8s ease-in-out infinite;
-      transition: transform 0.18s ease, filter 0.18s ease;
+      transition:
+        transform 0.18s ease,
+        filter 0.18s ease;
     }
-    .card-cta:hover { transform: scale(1.02); filter: brightness(1.08); }
-    .card-cta:active { transform: scale(0.985); }
-
+    .card-cta:hover {
+      transform: scale(1.02);
+      filter: brightness(1.08);
+    }
+    .card-cta:active {
+      transform: scale(0.985);
+    }
     @keyframes ctaGlow {
       0%, 100% {
         box-shadow:
@@ -402,11 +551,13 @@
           0 10px 22px rgba(22, 200, 90, 0.35);
       }
     }
-
+    /* =========================
+       COMMENTS
+    ========================== */
     .comments {
       margin-top: 4px;
       background: #10151a;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 18px;
       padding: 14px 12px 10px;
     }
@@ -432,27 +583,41 @@
       background: var(--red);
       box-shadow: 0 0 8px var(--red);
     }
-    .watching { color: var(--muted); font-size: 13px; }
-
+    .watching {
+      color: var(--muted);
+      font-size: 13px;
+    }
     .feed {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      min-height: 260px;
+      min-height: 120px;
       max-height: 340px;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
       padding: 6px 2px 8px;
+      scrollbar-width: thin;
+      scrollbar-color: #303840 transparent;
     }
     .row {
       display: grid;
       grid-template-columns: 34px 1fr;
       gap: 10px;
       align-items: start;
-      animation: liveIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation:
+        liveIn 0.45s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
     }
     @keyframes liveIn {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     .avatar {
       width: 34px;
@@ -463,14 +628,29 @@
       font-weight: 800;
       font-size: 13px;
       color: #fff;
+      flex-shrink: 0;
     }
-    .meta { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-    .meta .name { font-weight: 700; font-size: 13.5px; }
-    .meta .when { color: var(--muted-2); font-size: 12px; }
-    .msg { margin-top: 2px; color: #c5ccd4; font-size: 13.5px; line-height: 1.35; }
-
-    /* Live typing indicator — exact style like reference site */
-    .row.typing-row {
+    .meta {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .meta .name {
+      font-weight: 700;
+      font-size: 13.5px;
+    }
+    .meta .when {
+      color: var(--muted-2);
+      font-size: 12px;
+    }
+    .msg {
+      margin-top: 2px;
+      color: #c5ccd4;
+      font-size: 13.5px;
+      line-height: 1.35;
+    }
+    .typing-row {
       animation: none !important;
       opacity: 1;
     }
@@ -485,23 +665,35 @@
       margin-top: 2px;
       border-radius: 999px;
       background: #2a3138;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
     .typing-bubble span {
       width: 5px;
       height: 5px;
       border-radius: 50%;
       background: #9aa3ad;
-      animation: typingDot 1.15s ease-in-out infinite;
+      animation:
+        typingDot 1.15s ease-in-out infinite;
     }
-    .typing-bubble span:nth-child(1) { animation-delay: 0s; }
-    .typing-bubble span:nth-child(2) { animation-delay: 0.18s; }
-    .typing-bubble span:nth-child(3) { animation-delay: 0.36s; }
+    .typing-bubble span:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .typing-bubble span:nth-child(2) {
+      animation-delay: 0.18s;
+    }
+    .typing-bubble span:nth-child(3) {
+      animation-delay: 0.36s;
+    }
     @keyframes typingDot {
-      0%, 70%, 100% { opacity: 0.3; transform: translateY(0) scale(0.95); }
-      35% { opacity: 1; transform: translateY(-2.5px) scale(1); }
+      0%, 70%, 100% {
+        opacity: 0.3;
+        transform: translateY(0) scale(0.95);
+      }
+      35% {
+        opacity: 1;
+        transform: translateY(-2.5px) scale(1);
+      }
     }
-
     .more {
       display: block;
       width: 100%;
@@ -511,16 +703,15 @@
       font-size: 13px;
       padding: 8px 0 4px;
     }
-
-    footer {
-      text-align: center;
-      color: #6b7380;
-      font-size: 12px;
-      padding: 16px 10px 14px;
-      line-height: 1.6;
+    .more:hover {
+      color: #c7d0d9;
     }
-
-    .wa-wrap { padding: 0 0 8px; }
+    /* =========================
+       WHATSAPP
+    ========================== */
+    .wa-wrap {
+      padding: 14px 0 8px;
+    }
     .wa {
       width: 100%;
       min-height: 52px;
@@ -535,56 +726,90 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.22);
+      box-shadow:
+        0 10px 28px rgba(37, 211, 102, 0.22);
       transition: transform 0.18s ease;
     }
-    .wa:hover { transform: scale(1.01); }
-    .wa:active { transform: scale(0.985); }
-
+    .wa:hover {
+      transform: scale(1.01);
+    }
+    .wa:active {
+      transform: scale(0.985);
+    }
+    /* =========================
+       FOOTER
+    ========================== */
+    footer {
+      text-align: center;
+      color: #6b7380;
+      font-size: 12px;
+      padding: 16px 10px 14px;
+      line-height: 1.6;
+    }
+    /* =========================
+       TOAST
+    ========================== */
     .toast {
       position: fixed;
       left: 50%;
       bottom: calc(18px + var(--safe-bottom));
-      transform: translateX(-50%) translateY(12px);
+      transform:
+        translateX(-50%)
+        translateY(12px);
       background: #141a20;
-      border: 1px solid rgba(46,229,122,0.25);
+      border: 1px solid rgba(46, 229, 122, 0.25);
       color: #e8eef4;
       padding: 12px 14px;
       border-radius: 14px;
       width: min(480px, calc(100% - 28px));
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+      box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.45);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
       z-index: 30;
       font-size: 13.5px;
       line-height: 1.45;
     }
     .toast.show {
       opacity: 1;
-      transform: translateX(-50%) translateY(0);
+      transform:
+        translateX(-50%)
+        translateY(0);
     }
-
+    /* =========================
+       MODAL
+    ========================== */
     .modal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.62);
+      background: rgba(0, 0, 0, 0.62);
       display: none;
       place-items: center;
       z-index: 40;
       padding: 20px;
     }
-    .modal.open { display: grid; }
+    .modal.open {
+      display: grid;
+    }
     .modal-card {
       width: min(420px, 100%);
       background: #12171c;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 18px;
       padding: 20px;
       text-align: center;
     }
-    .modal-card h3 { margin-bottom: 8px; }
-    .modal-card p { color: #9aa3ad; font-size: 14px; }
+    .modal-card h3 {
+      margin-bottom: 8px;
+    }
+    .modal-card p {
+      color: #9aa3ad;
+      font-size: 14px;
+      line-height: 1.5;
+    }
     .modal-card button {
       margin-top: 16px;
       width: 100%;
@@ -595,14 +820,39 @@
       color: #062014;
       font-weight: 800;
     }
-
+    /* =========================
+       RESPONSIVE
+    ========================== */
     @media (min-width: 768px) {
-      .page { padding-top: 22px; }
-      .media-card { aspect-ratio: 16 / 9.2; }
+      .page {
+        padding-top: 22px;
+      }
+      .media-card {
+        aspect-ratio: 16 / 9.2;
+      }
     }
-
+    @media (max-width: 390px) {
+      .page {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .redeem-top {
+        grid-template-columns: 68px 1fr;
+        gap: 11px;
+      }
+      .icon-tile {
+        width: 68px;
+        height: 68px;
+      }
+      .badge {
+        height: 24px;
+        padding: 0 9px;
+      }
+    }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         animation: none !important;
         transition: none !important;
       }
@@ -610,57 +860,100 @@
   </style>
 </head>
 <body>
-  <div class="page">
+  <main class="page">
+    <!-- TOP BAR -->
     <header class="topbar">
       <div class="brand">
         <div class="dots" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
         <h1>₹4999 REDEEM CODE</h1>
       </div>
-      <div class="live-pill" aria-label="Simulated live counter">
-        <span class="pulse-dot" aria-hidden="true"></span>
-        <span><span id="liveCount">1,292</span> LIVE</span>
+      <div class="live-pill">
+        <span class="pulse-dot"></span>
+        <span>
+          <span id="liveCount">1,292</span> LIVE
+        </span>
       </div>
     </header>
-
-    <div class="features" aria-hidden="true">
+    <!-- FEATURES -->
+    <div class="features">
       <span>Unlimited Codes</span>
       <span class="sep">—</span>
       <strong>Instant Claim</strong>
     </div>
-
+    <!-- STEP 01 -->
     <section aria-labelledby="step1">
-      <div class="step" id="step1"><span class="bar"></span> STEP 01 — WATCH</div>
-
+      <div class="step" id="step1">
+        <span class="bar"></span>
+        STEP 01 — WATCH
+      </div>
+      <!-- VIDEO -->
       <div class="media-card">
         <div class="media-stage">
           <video
             id="promoVideo"
             controls
             autoplay
+            muted
             loop
             playsinline
             webkit-playsinline
             preload="auto"
             controlslist="nodownload noremoteplayback"
             disablePictureInPicture
-            oncontextmenu="return false;"
           >
-            <source src="https://www.image2url.com/r2/default/videos/1790660164456-b75617f4-a875-4ba2-9a7f-710f010cbadf.mp4" type="video/mp4">
+            <source
+              src="https://www.image2url.com/r2/default/videos/1790660164456-b75617f4-a875-4ba2-9a7f-710f010cbadf.mp4"
+              type="video/mp4"
+            >
+            आपका browser video playback support नहीं करता।
           </video>
-          <span class="live-badge"><i></i> LIVE</span>
+          <!-- Manual play button -->
+          <div
+            class="video-start-overlay"
+            id="videoOverlay"
+          >
+            <button
+              class="play"
+              id="playButton"
+              type="button"
+              aria-label="Play video with sound"
+            >
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="#111"
+                aria-hidden="true"
+              >
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </button>
+          </div>
+          <span class="live-badge">
+            <i></i>
+            LIVE
+          </span>
           <span class="corner tl"></span>
           <span class="corner br"></span>
         </div>
       </div>
-
+      <!-- WATCH COPY -->
       <div class="watch-copy">
         <h2>WATCH FULL VIDEO</h2>
-        <p>Complete the video to unlock your redeem code</p>
-        <div class="claims"><b id="claimsCount">4,681</b> claims in last hour</div>
+        <p>
+          Complete the video to unlock your redeem code
+        </p>
+        <div class="claims">
+          <b id="claimsCount">4,681</b>
+          claims in last hour
+        </div>
       </div>
-
+      <!-- REDEEM CARD -->
       <div class="redeem-wrap">
         <div class="rainbow">
           <article class="redeem">
@@ -672,8 +965,7 @@
                   width="78"
                   height="78"
                   draggable="false"
-                  oncontextmenu="return false;"
-                />
+                >
               </div>
               <div class="redeem-meta">
                 <div class="badges">
@@ -681,18 +973,38 @@
                   <span class="badge premium">PREMIUM</span>
                 </div>
                 <h3>₹4999 Redeem Code</h3>
-                <p class="sub">Redeemcode Giveaway</p>
-                <div class="stars" aria-label="5 star rating">★★★★★</div>
+                <p class="sub">
+                  Redeemcode Giveaway
+                </p>
+                <div
+                  class="stars"
+                  aria-label="5 star rating"
+                >
+                  ★★★★★
+                </div>
               </div>
             </div>
             <a
               class="card-cta"
+              id="redeemLink"
               href="https://terasharelink.com/s/1kqE1zUnrQcQj29DmEdfK-Q"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true">
-                <path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.6"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
               GET REDEEM CODE
             </a>
@@ -700,16 +1012,437 @@
         </div>
       </div>
     </section>
-
+    <!-- STEP 02 -->
     <section aria-labelledby="step2">
-      <div class="step claim" id="step2"><span class="bar"></span> STEP 02 — CLAIM</div>
-
-    <section class="comments" aria-labelledby="commentsTitle">
-      <div class="comments-head">
-        <div class="left" id="commentsTitle">
-          <span class="dot"></span>
-          Live Comments
-        </div>
-        <div class="watching"><span id="watchingCount">1,521</span> watching</div>
+      <div class="step claim" id="step2">
+        <span class="bar"></span>
+        STEP 02 — CLAIM
       </div>
-      <div class="feed
+      <!-- COMMENTS -->
+      <section
+        class="comments"
+        aria-labelledby="commentsTitle"
+      >
+        <div class="comments-head">
+          <div
+            class="left"
+            id="commentsTitle"
+          >
+            <span class="dot"></span>
+            Live Comments
+          </div>
+          <div class="watching">
+            <span id="watchingCount">1,521</span>
+            watching
+          </div>
+        </div>
+        <div
+          class="feed"
+          id="commentFeed"
+          aria-live="polite"
+        >
+          <!-- JS comments will appear here -->
+        </div>
+        <button
+          class="more"
+          id="showMore"
+          type="button"
+        >
+          Show more comments
+        </button>
+      </section>
+    </section>
+    <!-- WHATSAPP -->
+    <div class="wa-wrap">
+      <a
+        class="wa"
+        href="https://wa.me/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg
+          width="21"
+          height="21"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M20.52 3.48A11.83 11.83 0 0 0 12.08 0
+            C5.55 0 .24 5.3.24 11.84c0 2.08.54 4.11
+            1.57 5.9L.14 24l6.4-1.64a11.84 11.84
+            0 0 0 5.54 1.38h.01c6.53 0
+            11.84-5.31 11.84-11.84
+            0-3.16-1.23-6.13-3.41-8.42ZM12.09
+            21.7a9.83 9.83 0 0 1-5.01-1.37l-.36-.21
+            -3.8.97 1.02-3.7-.24-.38a9.84 9.84
+            0 1 1 8.39 4.69Zm5.41-7.38c-.3-.15
+            -1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15
+            -.2.3-.78.98-.96 1.18-.18.2-.35.23
+            -.65.08-.3-.15-1.27-.47-2.42-1.5
+            -.9-.8-1.51-1.79-1.69-2.09-.18-.3
+            -.02-.46.13-.61.13-.13.3-.35.45-.53
+            .15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53
+            -.08-.15-.68-1.64-.93-2.25-.24-.59-.49-.51
+            -.68-.52h-.58c-.2 0-.53.08-.81.38
+            -.28.3-1.06 1.03-1.06 2.51s1.08 2.91
+            1.23 3.11c.15.2 2.13 3.25 5.16 4.56
+            .72.31 1.28.5 1.72.64.72.23 1.37.2
+            1.89.12.58-.09 1.78-.73 2.03-1.44
+            .25-.71.25-1.31.18-1.44-.08-.13-.28-.2-.58-.35Z"
+          />
+        </svg>
+        Join WhatsApp
+      </a>
+    </div>
+    <footer>
+      Demo page. Comments shown on this page are sample content.
+      <br>
+      Please verify any offer or redeem code independently.
+    </footer>
+  </main>
+  <!-- TOAST -->
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+  <script>
+    "use strict";
+    /* ==========================================
+       VIDEO
+    ========================================== */
+    const video = document.getElementById("promoVideo");
+    const playButton = document.getElementById("playButton");
+    const videoOverlay = document.getElementById("videoOverlay");
+    function hideVideoOverlay() {
+      videoOverlay.classList.add("hidden");
+    }
+    async function playWithSound() {
+      try {
+        video.muted = false;
+        video.volume = 1;
+        await video.play();
+        hideVideoOverlay();
+      } catch (error) {
+        /*
+          Browser autoplay policy can reject audible playback.
+          In that case the user can press the visible play button.
+        */
+        video.muted = true;
+        try {
+          await video.play();
+        } catch (silentError) {
+          // Browser still requires manual playback.
+        }
+      }
+    }
+    playButton.addEventListener("click", async () => {
+      await playWithSound();
+    });
+    /*
+      Try muted autoplay immediately.
+      Muted autoplay is generally allowed by modern browsers.
+    */
+    window.addEventListener("load", async () => {
+      try {
+        video.muted = true;
+        await video.play();
+      } catch (error) {
+        // Manual play button remains available.
+      }
+    });
+    /*
+      First real user interaction:
+      attempt to switch from muted to audible playback.
+    */
+    document.addEventListener(
+      "pointerdown",
+      async () => {
+        if (!video.paused) {
+          try {
+            video.muted = false;
+            video.volume = 1;
+          } catch (error) {
+            // Ignore browser-specific restrictions.
+          }
+        } else {
+          await playWithSound();
+        }
+        hideVideoOverlay();
+      },
+      {
+        once: true,
+        passive: true
+      }
+    );
+    video.addEventListener("play", hideVideoOverlay);
+    /* ==========================================
+       LIVE COUNTERS
+    ========================================== */
+    const liveCount = document.getElementById("liveCount");
+    const watchingCount = document.getElementById("watchingCount");
+    const claimsCount = document.getElementById("claimsCount");
+    function randomChange(min, max) {
+      return Math.floor(
+        Math.random() * (max - min + 1)
+      ) + min;
+    }
+    setInterval(() => {
+      let current =
+        parseInt(
+          liveCount.textContent.replace(/,/g, ""),
+          10
+        ) || 1292;
+      current += randomChange(-3, 5);
+      if (current < 1250) {
+        current = 1250;
+      }
+      liveCount.textContent =
+        current.toLocaleString("en-IN");
+    }, 3000);
+    setInterval(() => {
+      let current =
+        parseInt(
+          watchingCount.textContent.replace(/,/g, ""),
+          10
+        ) || 1521;
+      current += randomChange(-4, 6);
+      if (current < 1400) {
+        current = 1400;
+      }
+      watchingCount.textContent =
+        current.toLocaleString("en-IN");
+    }, 4200);
+    setInterval(() => {
+      let current =
+        parseInt(
+          claimsCount.textContent.replace(/,/g, ""),
+          10
+        ) || 4681;
+      current += randomChange(0, 3);
+      claimsCount.textContent =
+        current.toLocaleString("en-IN");
+    }, 7000);
+    /* ==========================================
+       SAMPLE COMMENTS
+    ========================================== */
+    const comments = [
+      {
+        name: "Aman",
+        message: "Video पूरा देख लिया।",
+        time: "just now",
+        color: "#277da1"
+      },
+      {
+        name: "Rohit",
+        message: "Video चल गया 👍",
+        time: "1 min ago",
+        color: "#7b4dff"
+      },
+      {
+        name: "Sahil",
+        message: "Page mobile पर भी ठीक दिख रहा है।",
+        time: "2 min ago",
+        color: "#d95d39"
+      },
+      {
+        name: "Vikas",
+        message: "Code section मिल गया।",
+        time: "3 min ago",
+        color: "#43aa8b"
+      },
+      {
+        name: "Neeraj",
+        message: "Video quality अच्छी है।",
+        time: "4 min ago",
+        color: "#577590"
+      },
+      {
+        name: "Arjun",
+        message: "Button काम कर रहा है।",
+        time: "5 min ago",
+        color: "#f3722c"
+      },
+      {
+        name: "Karan",
+        message: "पूरा page smooth लग रहा है।",
+        time: "6 min ago",
+        color: "#9b5de5"
+      },
+      {
+        name: "Deepak",
+        message: "Thanks for the demo.",
+        time: "7 min ago",
+        color: "#00a896"
+      }
+    ];
+    const commentFeed =
+      document.getElementById("commentFeed");
+    const showMore =
+      document.getElementById("showMore");
+    let visibleComments = 5;
+    function createComment(comment, index) {
+      const row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = `
+        <div
+          class="avatar"
+          style="background:${comment.color}"
+        >
+          ${comment.name.charAt(0)}
+        </div>
+        <div>
+          <div class="meta">
+            <span class="name">
+              ${escapeHtml(comment.name)}
+            </span>
+            <span class="when">
+              ${escapeHtml(comment.time)}
+            </span>
+          </div>
+          <div class="msg">
+            ${escapeHtml(comment.message)}
+          </div>
+        </div>
+      `;
+      row.style.animationDelay =
+        `${index * 60}ms`;
+      return row;
+    }
+    function renderComments() {
+      commentFeed.innerHTML = "";
+      comments
+        .slice(0, visibleComments)
+        .forEach((comment, index) => {
+          commentFeed.appendChild(
+            createComment(comment, index)
+          );
+        });
+      showMore.style.display =
+        visibleComments >= comments.length
+          ? "none"
+          : "block";
+    }
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+    showMore.addEventListener("click", () => {
+      visibleComments = comments.length;
+      renderComments();
+    });
+    renderComments();
+    /* ==========================================
+       LIVE COMMENT SIMULATION
+    ========================================== */
+    const extraComments = [
+      {
+        name: "Mohit",
+        message: "यहाँ video ठीक से load हो गया।",
+        color: "#1982c4"
+      },
+      {
+        name: "Raj",
+        message: "Mobile browser पर test कर रहा हूँ।",
+        color: "#6a4c93"
+      },
+      {
+        name: "Nikhil",
+        message: "Nice demo page.",
+        color: "#2a9d8f"
+      },
+      {
+        name: "Aditya",
+        message: "CTA button दिखाई दे रहा है।",
+        color: "#e76f51"
+      }
+    ];
+    let extraIndex = 0;
+    function addLiveComment() {
+      if (document.hidden) {
+        return;
+      }
+      const item =
+        extraComments[
+          extraIndex % extraComments.length
+        ];
+      extraIndex++;
+      const row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = `
+        <div
+          class="avatar"
+          style="background:${item.color}"
+        >
+          ${escapeHtml(item.name.charAt(0))}
+        </div>
+        <div>
+          <div class="meta">
+            <span class="name">
+              ${escapeHtml(item.name)}
+            </span>
+            <span class="when">
+              just now
+            </span>
+          </div>
+          <div class="msg">
+            ${escapeHtml(item.message)}
+          </div>
+        </div>
+      `;
+      commentFeed.prepend(row);
+      while (commentFeed.children.length > 7) {
+        commentFeed.lastElementChild.remove();
+      }
+    }
+    setInterval(addLiveComment, 6500);
+    /* ==========================================
+       TOAST
+    ========================================== */
+    const toast =
+      document.getElementById("toast");
+    let toastTimer = null;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+    /* ==========================================
+       REDEEM BUTTON
+    ========================================== */
+    const redeemLink =
+      document.getElementById("redeemLink");
+    redeemLink.addEventListener("click", () => {
+      showToast(
+        "Redeem page नए tab में open हो रहा है।"
+      );
+    });
+    /* ==========================================
+       IMAGE FALLBACK
+    ========================================== */
+    const iconImage =
+      document.querySelector(".icon-tile img");
+    iconImage.addEventListener(
+      "error",
+      () => {
+        iconImage.style.display = "none";
+        const tile =
+          document.querySelector(".icon-tile");
+        tile.textContent = "₹";
+        tile.style.color = "#111";
+        tile.style.fontSize = "32px";
+        tile.style.fontWeight = "900";
+      }
+    );
+  </script>
+</body>
+</html>
