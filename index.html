@@ -435,22 +435,25 @@
     .watching { color: var(--muted); font-size: 13px; }
 
     .feed {
-      display: flex;
+      display: flex !important;
       flex-direction: column;
-      gap: 12px;
-      min-height: 260px;
-      max-height: 340px;
-      overflow-y: auto;
-      overflow-x: hidden;
-      scrollbar-width: none;
-      padding: 6px 2px 8px;
+      gap: 14px;
+      min-height: 280px;
+      max-height: none;
+      overflow: visible;
+      padding: 8px 4px 10px;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
-    .feed::-webkit-scrollbar { display: none; }
     .row {
-      display: grid;
+      display: grid !important;
       grid-template-columns: 34px 1fr;
       gap: 10px;
       align-items: start;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    .row.is-new {
       animation: liveIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
     @keyframes liveIn {
@@ -466,11 +469,12 @@
       font-weight: 800;
       font-size: 13px;
       color: #fff;
+      flex-shrink: 0;
     }
     .meta { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-    .meta .name { font-weight: 700; font-size: 13.5px; }
-    .meta .when { color: var(--muted-2); font-size: 12px; }
-    .msg { margin-top: 2px; color: #c5ccd4; font-size: 13.5px; line-height: 1.35; }
+    .meta .name { font-weight: 700; font-size: 13.5px; color: #f4f7fb; }
+    .meta .when { color: #8b94a3; font-size: 12px; }
+    .msg { margin-top: 2px; color: #d7dde5 !important; font-size: 13.5px; line-height: 1.4; }
 
     /* Live typing indicator — exact style like reference site */
     .row.typing-row {
@@ -709,8 +713,4 @@
 
     <section class="comments" aria-labelledby="commentsTitle">
       <div class="comments-head">
-        <div class="left" id="commentsTitle">
-          <span class="dot"></span>
-          Live Comments
-        </div>
-        <div cl
+        <div clas
