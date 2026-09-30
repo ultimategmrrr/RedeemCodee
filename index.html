@@ -435,25 +435,24 @@
     .watching { color: var(--muted); font-size: 13px; }
 
     .feed {
-      display: flex !important;
+      display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
       min-height: 280px;
-      max-height: none;
-      overflow: visible;
-      padding: 8px 4px 10px;
-      visibility: visible !important;
-      opacity: 1 !important;
+      max-height: 420px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 6px 2px 8px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.15) transparent;
     }
+    .feed::-webkit-scrollbar { width: 4px; }
+    .feed::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 4px; }
     .row {
-      display: grid !important;
+      display: grid;
       grid-template-columns: 34px 1fr;
       gap: 10px;
       align-items: start;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    .row.is-new {
       animation: liveIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
     @keyframes liveIn {
@@ -469,12 +468,11 @@
       font-weight: 800;
       font-size: 13px;
       color: #fff;
-      flex-shrink: 0;
     }
     .meta { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-    .meta .name { font-weight: 700; font-size: 13.5px; color: #f4f7fb; }
-    .meta .when { color: #8b94a3; font-size: 12px; }
-    .msg { margin-top: 2px; color: #d7dde5 !important; font-size: 13.5px; line-height: 1.4; }
+    .meta .name { font-weight: 700; font-size: 13.5px; }
+    .meta .when { color: var(--muted-2); font-size: 12px; }
+    .msg { margin-top: 2px; color: #c5ccd4; font-size: 13.5px; line-height: 1.35; }
 
     /* Live typing indicator — exact style like reference site */
     .row.typing-row {
@@ -530,22 +528,26 @@
     .wa-wrap { padding: 0 0 8px; }
     .wa {
       width: 100%;
-      min-height: 52px;
+      min-height: 56px;
       border: 0;
       border-radius: 999px;
-      background: #25d366;
+      background: linear-gradient(180deg, #3b9eff 0%, #1a7ae8 52%, #0d5fc4 100%);
       color: #fff;
       font-size: 16px;
       font-weight: 800;
+      letter-spacing: 0.04em;
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.22);
-      transition: transform 0.18s ease;
+      gap: 10px;
+      box-shadow:
+        0 0 0 1px rgba(100, 180, 255, 0.35),
+        0 0 18px rgba(30, 140, 255, 0.45),
+        0 8px 22px rgba(20, 100, 220, 0.3);
+      transition: transform 0.18s ease, filter 0.18s ease;
     }
-    .wa:hover { transform: scale(1.01); }
+    .wa:hover { transform: scale(1.02); filter: brightness(1.08); }
     .wa:active { transform: scale(0.985); }
 
     .toast {
@@ -706,11 +708,3 @@
           </article>
         </div>
       </div>
-    </section>
-
-    <section aria-labelledby="step2">
-      <div class="step claim" id="step2"><span class="bar"></span> STEP 02 — CLAIM</div>
-
-    <section class="comments" aria-labelledby="commentsTitle">
-      <div class="comments-head">
-        <div clas
