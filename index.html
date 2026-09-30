@@ -708,3 +708,309 @@
           </article>
         </div>
       </div>
+    </section>
+
+    <section aria-labelledby="step2">
+      <div class="step claim" id="step2"><span class="bar"></span> STEP 02 — CLAIM</div>
+
+    <section class="comments" aria-labelledby="commentsTitle">
+      <div class="comments-head">
+        <div class="left" id="commentsTitle">
+          <span class="dot"></span>
+          Live Comments <span style="color:#6b7380;font-weight:600;font-size:12px">(DEMO)</span>
+        </div>
+        <div class="watching"><span id="watchingCount">1,521</span> watching</div>
+      </div>
+      <div class="feed" id="feed" aria-live="polite">
+        <div class="row">
+          <div class="avatar" style="background:#2f7bff">R</div>
+          <div>
+            <div class="meta"><span class="name">Roh6458</span><span class="when">just now</span></div>
+            <div class="msg">Ha bhai redeem code mil gaya ❤️‍🩹🫶</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="avatar" style="background:#1f9d6a">H</div>
+          <div>
+            <div class="meta"><span class="name">HDMohit16</span><span class="when">just now</span></div>
+            <div class="msg">Mil gaya thanks bhai 🔥🫶</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="avatar" style="background:#7a3dff">D</div>
+          <div>
+            <div class="meta"><span class="name">DeepakIndl</span><span class="when">2s ago</span></div>
+            <div class="msg">Redeem code mil gaya yr ❤️😍</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="avatar" style="background:#d4552a">R</div>
+          <div>
+            <div class="meta"><span class="name">Rohan_Zone270</span><span class="when">3s ago</span></div>
+            <div class="msg">Sach me mil gaya, yakeen nahi ho raha 💋😍</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="avatar" style="background:#8a3ad4">X</div>
+          <div>
+            <div class="meta"><span class="name">xKrishna387</span><span class="when">5s ago</span></div>
+            <div class="msg">Thanks bhai redeem code ke liye 🫶</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="avatar" style="background:#3aa0c8">A</div>
+          <div>
+            <div class="meta"><span class="name">Aarav2010</span><span class="when">6s ago</span></div>
+            <div class="msg">₹4999 ka redeem code mil gaya ❤️</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="avatar" style="background:#c9a227">S</div>
+          <div>
+            <div class="meta"><span class="name">sumit6764</span><span class="when">8s ago</span></div>
+            <div class="msg">Thnx mil gaya finally 🎁❤️</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="avatar" style="background:#e23d6d">R</div>
+          <div>
+            <div class="meta"><span class="name">ravi2694</span><span class="when">9s ago</span></div>
+            <div class="msg">Bhai maine claim kar liya 🎁🔥</div>
+          </div>
+        </div>
+      </div>
+      <button class="more" type="button" id="moreBtn">⌄ Scroll for more</button>
+    </section>
+    </section>
+
+    <footer>
+      © 2026 — Not affiliated with any brand
+    </footer>
+
+    <div class="wa-wrap">
+      <a
+        class="wa"
+        href="https://ffdimondss.netlify.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Free Unlimited Dimond"
+      >
+        <span style="font-size:22px;line-height:1">💎</span>
+        Free Unlimited Dimond 💎
+      </a>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <h3 id="modalTitle">Demo preview only</h3>
+      <p id="modalText">This page is a front-end design demo. No real redeem codes, payments, or channels are connected.</p>
+      <button type="button" id="closeModal">Got it</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const liveEl = document.getElementById("liveCount");
+      const watchEl = document.getElementById("watchingCount");
+      const claimsEl = document.getElementById("claimsCount");
+      const feed = document.getElementById("feed");
+      const toast = document.getElementById("toast");
+      const modal = document.getElementById("modal");
+      const modalText = document.getElementById("modalText");
+
+      let live = 1292;
+      let watching = 1521;
+      let claims = 4681;
+
+      const format = (n) => n.toLocaleString("en-IN");
+      const tickNumber = (current, minDelta, maxDelta, floor) => {
+        const delta = Math.floor(Math.random() * (maxDelta - minDelta + 1)) + minDelta;
+        const dir = Math.random() > 0.35 ? 1 : -1;
+        return Math.max(floor, current + dir * delta);
+      };
+
+      const updateCounters = () => {
+        live = tickNumber(live, 1, 6, 1200);
+        watching = tickNumber(watching, 1, 8, 1400);
+        if (Math.random() > 0.45) claims += Math.floor(Math.random() * 17) + 3;
+        liveEl.textContent = format(live);
+        watchEl.textContent = format(watching);
+        claimsEl.textContent = format(claims);
+      };
+
+      const colors = ["#2f7bff", "#c9a227", "#7a3dff", "#e23d6d", "#1f9d6a", "#d4552a", "#3aa0c8", "#8a3ad4"];
+      const names = ["Roh6458", "HDMohit16", "DeepakIndl", "Rohan_Zone270", "xKrishna387", "Aarav2010", "sumit6764", "ravi2694"];
+      const comments = [
+        "Ha bhai redeem code mil gaya ❤️‍🩹🫶",
+        "Mil gaya thanks bhai 🔥🫶",
+        "Redeem code mil gaya yr ❤️😍",
+        "Sach me mil gaya, yakeen nahi ho raha 💋😍",
+        "Thanks bhai redeem code ke liye 🫶",
+        "₹4999 ka redeem code mil gaya ❤️",
+        "Thnx mil gaya finally 🎁❤️",
+        "Bhai maine claim kar liya 🎁🔥"
+      ];
+
+      if (!feed) return;
+
+      const makeRow = (name, when, text, animate) => {
+        const row = document.createElement("div");
+        row.className = "row";
+        if (!animate) row.style.animation = "none";
+        const color = colors[Math.abs(name.charCodeAt(0)) % colors.length];
+        const letter = (name.charAt(0) || "?").toUpperCase();
+        row.innerHTML =
+          '<div class="avatar" style="background:' + color + '">' + letter + "</div>" +
+          "<div>" +
+          '<div class="meta"><span class="name">' + name + '</span><span class="when">' + when + "</span></div>" +
+          '<div class="msg">' + text + "</div>" +
+          "</div>";
+        return row;
+      };
+
+      const makeTyping = (color) => {
+        const tip = document.createElement("div");
+        tip.className = "row typing-row";
+        tip.innerHTML =
+          '<div class="avatar" style="background:' + color + '"></div>' +
+          '<div><div class="typing-bubble" aria-label="typing"><span></span><span></span><span></span></div></div>';
+        return tip;
+      };
+
+      // Clear & seed initial comments so they always show (GitHub-safe)
+      feed.innerHTML = "";
+      const seed = [
+        { name: "ravi2694", when: "9s ago", text: "Bhai maine claim kar liya 🎁🔥" },
+        { name: "sumit6764", when: "8s ago", text: "Thnx mil gaya finally 🎁❤️" },
+        { name: "Aarav2010", when: "6s ago", text: "₹4999 ka redeem code mil gaya ❤️" },
+        { name: "xKrishna387", when: "5s ago", text: "Thanks bhai redeem code ke liye 🫶" },
+        { name: "Rohan_Zone270", when: "3s ago", text: "Sach me mil gaya, yakeen nahi ho raha 💋😍" },
+        { name: "DeepakIndl", when: "2s ago", text: "Redeem code mil gaya yr ❤️😍" },
+        { name: "HDMohit16", when: "just now", text: "Mil gaya thanks bhai 🔥🫶" },
+        { name: "Roh6458", when: "just now", text: "Ha bhai redeem code mil gaya ❤️‍🩹🫶" }
+      ];
+      seed.forEach(function (item) {
+        feed.appendChild(makeRow(item.name, item.when, item.text, false));
+      });
+      feed.appendChild(makeTyping(colors[1]));
+
+      let commentIndex = 0;
+      let busy = false;
+
+      const addComment = () => {
+        if (busy || !feed) return;
+        busy = true;
+
+        const text = comments[commentIndex % comments.length];
+        const name = names[commentIndex % names.length];
+        const color = colors[commentIndex % colors.length];
+        commentIndex += 1;
+
+        // Refresh typing indicator at bottom
+        const oldTip = feed.querySelector(".typing-row");
+        if (oldTip) oldTip.remove();
+        const tip = makeTyping(color);
+        feed.appendChild(tip);
+
+        setTimeout(function () {
+          // Age times from bottom (newest near bottom)
+          const whens = feed.querySelectorAll(".row:not(.typing-row) .when");
+          for (let i = 0; i < whens.length; i++) {
+            const fromBottom = whens.length - 1 - i;
+            if (fromBottom === 0) whens[i].textContent = "2s ago";
+            else if (fromBottom === 1) whens[i].textContent = "5s ago";
+            else if (fromBottom === 2) whens[i].textContent = "8s ago";
+            else if (whens[i].textContent === "just now") whens[i].textContent = (fromBottom + 3) + "s ago";
+          }
+
+          // New comment at BOTTOM (just above typing) — slides up from below
+          const row = makeRow(name, "just now", text, true);
+          const tipNow = feed.querySelector(".typing-row");
+          if (tipNow) {
+            feed.insertBefore(row, tipNow);
+          } else {
+            feed.appendChild(row);
+          }
+
+          // Keep max 6 real comments — remove oldest from TOP
+          let reals = feed.querySelectorAll(".row:not(.typing-row)");
+          while (reals.length > 6) {
+            reals[0].remove();
+            reals = feed.querySelectorAll(".row:not(.typing-row)");
+          }
+
+          // Typing always stays at very bottom
+          if (!feed.querySelector(".typing-row")) {
+            feed.appendChild(makeTyping(colors[commentIndex % colors.length]));
+          } else {
+            feed.appendChild(feed.querySelector(".typing-row"));
+          }
+
+          busy = false;
+        }, 1500);
+      };
+
+      const showToast = (msg) => {
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add("show");
+        clearTimeout(showToast.t);
+        showToast.t = setTimeout(function () { toast.classList.remove("show"); }, 2800);
+      };
+
+      const video = document.getElementById("promoVideo");
+
+      const playWithSound = () => {
+        if (!video) return Promise.resolve();
+        video.muted = false;
+        video.defaultMuted = false;
+        video.volume = 1;
+        return video.play();
+      };
+
+      const startVideo = () => {
+        if (!video) return;
+        video.muted = false;
+        video.defaultMuted = false;
+        video.volume = 1;
+        playWithSound().catch(function () {});
+      };
+
+      if (video) {
+        video.addEventListener("error", function () {
+          showToast("Video load nahi hua. Network check karo ya baad me try karo.");
+        });
+        video.setAttribute("controlsList", "nodownload noremoteplayback");
+        video.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+        startVideo();
+        video.addEventListener("canplay", startVideo, { once: true });
+        video.addEventListener("loadeddata", startVideo, { once: true });
+      }
+
+      document.addEventListener("contextmenu", function (e) {
+        var t = e.target;
+        if (t && t.closest && t.closest("video, img, .media-card, .icon-tile")) e.preventDefault();
+      });
+      document.addEventListener("dragstart", function (e) {
+        var t = e.target;
+        if (t && t.closest && t.closest("video, img, .media-card, .icon-tile")) e.preventDefault();
+      });
+
+      ["pointerdown", "touchstart", "click", "keydown"].forEach(function (evt) {
+        document.addEventListener(evt, function () { playWithSound().catch(function () {}); }, { once: true, passive: true });
+      });
+
+      var moreBtn = document.getElementById("moreBtn");
+      if (moreBtn) moreBtn.addEventListener("click", addComment);
+
+      setInterval(updateCounters, 2200);
+      setInterval(addComment, 3800);
+      // Kick first live comment soon after load
+      setTimeout(addComment, 1800);
+    })();
+  </script>
+</body>
+</html>
